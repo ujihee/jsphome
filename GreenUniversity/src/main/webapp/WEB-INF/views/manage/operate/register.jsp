@@ -52,6 +52,10 @@
                                         <option value="3">3 학년</option>
                                         <option value="4">4 학년</option>
                                     </select>
+									<select name="semester">
+                                        <option value="1">1 학기</option>
+                                        <option value="2">2 학기</option>
+                                    </select>
                                 </td>
                                 <td class="tit">학점</td>
                                 <td>
@@ -103,8 +107,8 @@
                             <tr class="">
                                 <td class="tit">수업 기간</td>
                                 <td colspan="3">
-                                    <input type="date" name="start_date"value="10:00" style="width: 150px;"/>&nbsp;~
-                                    <input type="date" name="end_date"value="12:00" style="width: 150px;"/>
+                                    <input type="date" name="start_date" style="width: 150px;"/>&nbsp;~
+                                    <input type="date" name="end_date" style="width: 150px;"/>
                                 </td>
                             </tr>
                             <tr class="">

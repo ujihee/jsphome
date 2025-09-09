@@ -28,12 +28,21 @@ public class Sql {
 	public final static String SEARCH_ORDER_ID = "ORDER BY ID DESC ";
 	public final static String SEARCH_OFFSET_ROW = "LIMIT 5 OFFSET ?";
 	
-	// manage - lecture SQL 작성 - 우지희
+	/*
+	 * 날짜 : 2025/09/08
+	 * 이름 : 우지희
+	 * 내용 : manage SQL 작성
+	 */
+	// manage - lecture register 
 	public static final String REGISTER_LECTURE = 
 		    "INSERT INTO tb_lecture " +
 		    "(lecNo, lenName, category, grade, semester, credit, description, " +
 		    "start_date, end_date, start_time, end_time, day_of_week, evaluation, textbook, classroom, max_enrollment) " +
 		    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-	//managedao - getnextsequence
+	//manageDAO - getnextsequence
 	public static final String GET_NEXT_SEQUENCE = "SELECT COUNT(*) + 1 FROM tb_lecture WHERE lecNo LIKE ? ";
+	
+	//managedao - list sql
+	public static final String SELECT_ALL_TB_LECTURE = "select * from tb_lecture";
+	
 }

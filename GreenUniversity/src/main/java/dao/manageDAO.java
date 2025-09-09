@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -75,7 +76,40 @@ public class manageDAO extends DBHelper{
 		return null;
 	}
 	public List<LectureManageDTO> selectAllLecture() {
-		return null;
+		
+		List<LectureManageDTO> dtoList = new ArrayList<LectureManageDTO>();
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_ALL_TB_LECTURE);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				LectureManageDTO dto = new LectureManageDTO();
+				dto.setLecNo(rs.getInt("lec_no"));
+	            dto.setLenName(rs.getString("len_name"));
+	            dto.setCategory(rs.getString("category"));
+	            dto.setGrade(rs.getString("grade"));
+	            dto.setSemester(rs.getString("semester"));
+	            dto.setCredit(rs.getString("credit"));
+	            dto.setDescription(rs.getString("description"));
+	            dto.setStart_date(rs.getString("start_date"));
+	            dto.setEnd_date(rs.getString("end_date"));
+	            dto.setStart_time(rs.getString("start_time"));
+	            dto.setEnd_time(rs.getString("end_time"));
+	            dto.setDay_of_week(rs.getString("day_of_week"));
+	            dto.setEvaluation(rs.getString("evaluation"));
+	            dto.setTextbook(rs.getString("textbook"));
+	            dto.setClassroom(rs.getString("classroom"));
+	            dto.setMax_enrollment(rs.getString("max_enrollment"));
+
+	            dtoList.add(dto);
+	            closeAll();
+			}
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		return dtoList;
 	}
 	public void updateLecture(LectureManageDTO dto) {}
 	public void deleteLecture(int lecno) {}
